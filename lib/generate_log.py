@@ -6,8 +6,7 @@ def generate_log(data):
 
     # STEP 1: Validate input
     if not isinstance(data, list):
-        print("Error: data must be a list of strings.")
-        return  # stop the function if the input is not valid
+        raise ValueError("data must be a list of strings")
 
     # STEP 2: Generate a filename with today's date (e.g., "log_20250408.txt")
     filename = f"log_{datetime.now().strftime('%Y%m%d')}.txt"
@@ -21,6 +20,7 @@ def generate_log(data):
 
     # STEP 4: Print a confirmation message with the filename
     print(f"Log written to {filename}")
+    return filename
 
 # This block only runs when the script is executed directly from the command line
 if __name__ == "__main__":
